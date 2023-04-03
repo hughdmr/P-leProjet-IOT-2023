@@ -104,4 +104,4 @@ if __name__ == "__main__":
         f = os.path.join(directory, filename)
         if os.path.isfile(f):
             newdirectory = 'pole-iot\dfincsv'
-            create_csv(directory, filename)
+            create_csv(newdirectory, filename)
