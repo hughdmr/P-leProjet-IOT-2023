@@ -18,4 +18,6 @@ myquery2 = mycol.distinct('taille_up')
 for x in myquery2:
     print(x)
 
-# print(mycol)
+# MongoDB Compass
+# J'ai pas fait les trucs proprements mais j'ai un peu tout installé comme un bourrin MongoDB Compass, mongodb-atlas. Le mieux serait de suivre un tuto.
+# Après faut upload le fichier csv sur MongoDB Compass
