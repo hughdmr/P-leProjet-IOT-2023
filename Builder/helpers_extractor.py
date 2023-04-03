@@ -1,6 +1,6 @@
 import pandas as pd
 from scapy.all import *
-from Builder.helpers_pcap import findTags
+from helpers_pcap import findTags
 import logging
 
 logging.getLogger("scapy.runtime").setLevel(logging.ERROR)
@@ -52,7 +52,7 @@ def packetsDataExtractor(packets, tagsDictionnary):
     df = pd.DataFrame({"Session": session, "Bytes": bytes, "Time": times,
                        "PortSrc": portSrc, "PortDest": portDest, "SensorID": sensorID})
 
-    return(df)
+    return (df)
 
 
 def sessionsDataExtractor(packetsData):
@@ -79,4 +79,4 @@ def sessionsDataExtractor(packetsData):
     df = pd.DataFrame(data, columns=[
         'Session', 'Bytes', 'NumberOfPackets', 'StartTime', 'EndTime', 'DonglePort', 'SensorID'])
 
-    return(df)
+    return (df)

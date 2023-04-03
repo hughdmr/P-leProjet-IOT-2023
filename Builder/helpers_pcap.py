@@ -3,19 +3,19 @@ from scapy.all import *
 
 
 def loadPcap(path):
-    return(rdpcap(path))
+    return (rdpcap(path))
 
 
 def createTagsDictionnary():
     """
         create a dictionnary with data from sensors_tags.txt
     """
-    file = open('Builder/sensors_tags.txt', 'r')
+    file = open("pole-iot\Builder\sensors_tags.txt", "r")
     res = {}
     for line in file.readlines():
         name, sensor_id, tags, _ = line.split(" : ")
         res[(name, int(sensor_id))] = tags.split(" , ")
-    return(res)
+    return (res)
 
 
 def findTags(string, balises_dic):
@@ -33,14 +33,14 @@ def findTags(string, balises_dic):
         raise ValueError(
             "une frame a plusieurs labels! \n le contenu de la frame: " + string)
 
-    return(int(res[0]) if res else None)
+    return (int(res[0]) if res else None)
 
 
 def filterHTTPPackets(packets):
     """
         return packets with source_port == 80 or destination_port == 80
     """
-    return(packets.filter(lambda x: x.haslayer(IP) and (x[IP].dport == 80 or x[IP].sport == 80)))
+    return (packets.filter(lambda x: x.haslayer(IP) and (x[IP].dport == 80 or x[IP].sport == 80)))
 
 
 def mergeUpDownSessions(df):
@@ -64,4 +64,4 @@ def mergeUpDownSessions(df):
             dict[session] = protocol + ' ' + src + ' <> ' + dest
     df.Session = df.apply((lambda y: dict[y.Session]), axis=1)
 
-    return(df)
+    return (df)

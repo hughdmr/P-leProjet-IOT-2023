@@ -1,6 +1,6 @@
-from Builder.helpers_db import *
-from Builder.helpers_pcap import *
-from Builder.helpers_extractor import *
+from helpers_db import *
+from helpers_pcap import *
+from helpers_extractor import *
 import glob
 
 
@@ -32,3 +32,6 @@ def merge():
     main_df.to_csv(f"Learner/TrainingDB/trainingDB.csv", index=False)
 
     return True
+
+if __name__ == '__main__':
+    build()

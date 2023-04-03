@@ -53,4 +53,4 @@ def buildDataBase(sessionsData):
     db = pd.DataFrame(data, columns=['SensorID', 'SessionDurationMean',
                                      'SessionBytesMean', 'SleepTimeMean', 'SleepTimeVariance'])
 
-    return(db)
+    return (db)
